@@ -6,9 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>{{page.title}}</title>
 
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/assets/css/highlights.css">
+    <link rel="stylesheet" href="/assets/css/screen.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+
     <link rel="stylesheet" href="/assets/js/all.js">
   </head>
-  {{ content }}
+
+  # (add toc here)
+  <div class="page-wrapper">
+      <div class="dark-box"></div>
+        <div class="content">
+          {{ content }}
+        </div>
+        # (add darkbox here)
+      </div>
   </body>
 </html>
