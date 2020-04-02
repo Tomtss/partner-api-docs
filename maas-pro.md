@@ -17,7 +17,7 @@ curl "https://partners.voiapp.io/v1/...
 API endpoints available for the mobility partner, are protected with token authentication using the key `X-Auth-Token` in the request header with the token you received from Voi when signing up.
 
 If you are interested in using our API please contact us at [api@voiapp.io](mailto:api@voiapp.io).
-### Header Parameters
+## Header Parameters
 
 Key | Value
 --------- | -----------
@@ -29,7 +29,7 @@ X-Auth-Token |  your-token
 
 This section describes the possible interactions with the user domain of the API.
 
-### User model
+## User model
 > The user response model.
 
 ```shell

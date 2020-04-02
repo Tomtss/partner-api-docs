@@ -162,13 +162,13 @@ html, body {
   }
 
   // This is the currently selected ToC entry
-  .toc-link.active {
+  a.active {
     background-color: $nav-active-bg;
     color: $nav-active-text;
   }
 
   // this is parent links of the currently selected ToC entry
-  .toc-link.active-parent {
+  a.active-parent {
     background-color: $nav-active-parent-bg;
     color: $nav-active-parent-text;
   }
@@ -206,7 +206,7 @@ html, body {
   }
 }
 
-.toc-link, .toc-footer li {
+.toc-wrapper a, .toc-footer li {
   padding: 0 $nav-padding 0 $nav-padding;
   display: block;
   overflow-x: hidden;
@@ -583,7 +583,7 @@ html, body {
     display: block;
   }
 
-  .toc-link {
+  a {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
   }
