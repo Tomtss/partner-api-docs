@@ -33,15 +33,20 @@
     left: 6px;
 }
 
-.content h1 {
+.content{ h1 {
     font-size: 24px;
     margin-bottom: 0;
+    &:first-child {
+        padding-top: 60px
+    }
+    }
+    > .highlighter-rouge{
+        clear: none;
+    }
 }
 
 
-.content h1:first-child {
-    padding-top: 60px
-}
+
 
 .content>h1,.content>h2,.content>h3,.content>h4,.content>h5,.content>h6,.content>p,.content>table,.content>ul,.content>ol,.content>aside,.content>dl {
     padding-left: 24px;

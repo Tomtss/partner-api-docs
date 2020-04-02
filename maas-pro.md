@@ -3,6 +3,9 @@ layout: page
 title: Maas Pro
 permalink: /maas-pro/
 ---
+# Introduction
+
+This documentation is outlining the available API’s for a mobility partner to integrate into Voi’s vehicle rental service.
 
 # Authentication
 
