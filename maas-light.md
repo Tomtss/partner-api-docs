@@ -52,6 +52,7 @@ See Open Mobility Foundation's MDS description on versioning [here](https://gith
 <aside class="warning">Current MDS implementation only supports version 0.4</aside>
 
 ### Header 
+
 Key | Value
 --------- | -----------
 Accept | application/vnd.mds.provider+json;version=0.4

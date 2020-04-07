@@ -703,6 +703,7 @@ id |  The vehicle's id (UUID version 4)  | required
 To able to display the correct zone information in a provider app, the geolocation of objects such as no-parking areas, slow areas, and operational areas can be received using the get zones endpoint.
 
 ### Supported Areas
+
 area type  | Description
 ------ | -------- 
 operations |  The operational area, where Voi operates
