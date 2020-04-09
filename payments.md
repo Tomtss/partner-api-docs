@@ -3,14 +3,14 @@ layout: text
 title: Payments
 permalink: /payments/
 menu: main
-description: Everything related to paymentflows refunds and invoicing
+description: Paymentflows, refunds, fraud and invoicing
 ---
 
 # Payment flow
-When a user finishes a ride, Voi calculates the total price of the ride and returns this to the partner. The partner then charges the end user for the ride. The partner is responsible for making sure they can collect the money from the end-user, including fraud prevention.
+When a user finishes a ride, Voi calculates the total price of the ride and returns this to the partner. The partner then charges the end user for the ride. The partner is responsible for making sure they can collect the money from the end-user, including fraud prevention. (We do a 5€ pre auth payment before the first ride. The partner can do what ever they want.)
 
 # Prices and fees
-Pricing is constantly evolving but typically consists of a fixed fee and a minute fee. 
+Pricing is constantly evolving but typically consists of a fixed fee and a minute fee.
 
 __End ride fines__ If the user leaves the scooter in a non parking zone, Voi may add an additional fee before ending the ride. This will be included in the end-ride charge.
 

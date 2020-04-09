@@ -40,7 +40,7 @@ We will provide you with the users e-mail when contacting your customer support.
 |User performs a traffic offence| |
 |User was in an accident |Contact Voi|
 |Insurance|Contact insuarance company|
-|Police reaches out with request|Refer them to [bjorn@voiapp.io](mailto:bjorn@voiapp.io)|
+|Police reaches out with request|Refer them to the point of [contact for police data requests](/poc/)
 |User requests right to be forgotten|First delete the account in the Partner app, then ask them to contact Voi for a separate request|
 |User requests their data|Share data from your service and ask them to contact Voi for a separate request|
 
