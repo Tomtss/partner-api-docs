@@ -60,6 +60,4 @@ We will provide you with the users e-mail when contacting your customer support.
 # Faq
 Vois faq is available here: [https://voisupport.zendesk.com/hc/en-us](https://voisupport.zendesk.com/hc/en-us)
 
-## Embed
-
-## API
+We recommend embedding it as a web-view within your app.
