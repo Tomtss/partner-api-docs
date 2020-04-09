@@ -1,7 +1,9 @@
 ---
-layout: page
+layout: code
 title: Maas Pro
 permalink: /maas-pro/
+menu: main
+description: A deep integration API, used for completing full user journeys.
 ---
 # Introduction
 

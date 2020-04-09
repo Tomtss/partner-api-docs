@@ -1,7 +1,9 @@
 ---
-layout: page
-title: MDS
+layout: code
+title: Maas Light
 permalink: /maas-light/
+menu: main
+description: A read only API, containing MDS, GBFS and Zone data
 ---
 
 # MDS
