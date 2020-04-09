@@ -7,6 +7,3 @@ description: Who to contact about what.
 ---
 
 # Customer Support
-
-@todo – reverse docs
-@todo – design
