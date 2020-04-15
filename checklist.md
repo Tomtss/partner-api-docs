@@ -25,9 +25,9 @@ Follow theese steps to complete a deep integration
 # Meetings (optional)
 We offer the partners to align on details with [counterparts](/poc/) in the following areas. Reach out to them if you want to setup a meeting.
 
-- Payment alignments 
-- Customer support alignemnt
-- Engineering
+- Payment alignments, recomended to do close to launch.
+- Customer support alignment, recomended to do half-way through the integration.
+- Engineering, recommended to do after tests against API are perfomed.
 
 #  Launch activites
 
