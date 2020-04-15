@@ -7,7 +7,7 @@ description: Customer support flows, ways of contact and service cases.
 ---
 
 # Customer Support
-Voi is responsible for any service cases related to the ride, accidents, police and insurance. Any other requests are handled by the partner. If service requests are sent to the wrong customer support, Customer support forwards them to their counterpart. Refunds are always performed by the partner, but sometime requested by Voi.
+Voi is responsible for any service cases related to the ride, accidents, police and insurance. Any other requests are handled by the partner. By presenting Voi contact information while the user is unlocking, riding and unlocking the scooter, most support cases end up in the right place. If service requests are sent to the wrong customer support, Customer support forwards them to their counterpart at the other company. Refunds are always performed by the partner, but sometime requested by Voi.
 
 Voi aims to respond to any customer support errand within 2 hours, and within 30 minutes for urgent matters.
 
@@ -19,7 +19,7 @@ Voi uses the email-adress and, if available, the 4-letter code next to the QR-co
 Please provide this e-mail as the primary means of communication: [support@voiapp.io](support@voiapp.io)
 
 ## Contacting partners customer support
-Voi will need the following information provided to our customer support, in order to perform customer support:
+Voi will need the following information:
 * A way to contact your customer support.
 * A way to request that refunds are performed.
 
@@ -31,9 +31,9 @@ We will provide you with the users e-mail when contacting your customer support.
 |Support case | Action |
 |---|---|
 |Something is wrong with a reserved scooter|Can't happen, since you cannot book a Voi.|
-|User cannot find scooter|Ask the user to find another scooter. Voi will automatically create a search and rescue task.|
-|User cannot start trip|First troubleshoot, (unlocked kick to get some speed, push gas-button). Then contact Voi|
-|User cannot end active rental|First troubleshooting (check if the user located in the business area) Then contact Voi|
+|User cannot find scooter|Ask the user to find another scooter. Voi will automatically create a search and rescue task for the missing scooter.|
+|User cannot start the trip|First troubleshoot(make sure the scooter is unlocked, kick to get some speed and push gas-button). Then contact Voi|
+|User cannot end active rental|First troubleshooting (check if the user located in the business area). Then contact Voi|
 |User cannot perform a booking|Make sure the user has performed the required steps in your app. If it's still not working contact Voi|
 |The scooter is located outside of Voi:s business area with an active rental|Tell the user to go back and warn them about the 25€ fee. Then contact Voi and ask Voi to manually end the ride. (The first time we forgive the debt, after that we charge the user 25€ extra.) |
 |The scooter did not unlock, user insists on refund| |
