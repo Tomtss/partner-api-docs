@@ -5,38 +5,30 @@ permalink: /checklist/
 menu: main
 description: What needs to happen before we go live?
 ---
+The following tasks need to be completed before we can go live.
+
+- Sign legal agreements
+	- Data sharing agreement
+	- Commercial agreement
 
 - Technical integration
-	1. Build in staging
-	2. Move to production
-	3. Test in closed beta
-	4. Go live
-- Customer support alignemnt
-	- Review customer support flows
- 	- Partner provides points of contact
- 	- Partner provides method for requesting refunds
+	1. Implement MaaS Pro API in our staging enviroment
+	2. Test implemenation with vitural scooters
+	3. Request access to production
+	4. Final test in closed beta
+	5. Go live
+	6. Celebrate!
 
-- Payment alignment
+- Customer support alignemnt
+	- Review customer support flows with Voi customer support(optional)
+	- Partner provides points of contact
+	- Partner provides method for requesting refunds
+
+- Book a meeting with Voi finance(optional)
 	- Review payment flow
 	- Agree on details about invoicing material
 
-- Engineering
-	- Release plan
-	- Incident managemnet(?)
-- Marketing+Launch
-
-
-# Payment flow
-When a user finishes a ride, Voi calculates the total price of the ride,
-
-Price calculations
-
-# Additional charges to the user
-
-
-# Invoicing details
-
-## Germany
-Leopoldstraße 180, 80804 München
-Reg no: 87280132
-VAT no: DE 323904440
+- Engineering alignment
+	- Integration kickoff meeting(optional)
+	- Align with Voi on go-live date
+- Align on marketing + launch activities

@@ -1,7 +1,5 @@
 todo:
-Link assets
 Deep integration checklist
-
 ---
 embed faq (in resources)
 temporary faq
@@ -13,6 +11,9 @@ service hotlines - https://voiapp.slack.com/archives/DRF110NVA/p1586855803000100
 TOC(olika språk)
 zones
 Deeplinks
+assets-menyny funkar inte som den ska(onload?)
+Bugg i listorna 
+POC - Payments
 
 design
 - Menu 
