@@ -30,26 +30,27 @@ We will provide you with the users e-mail when contacting your customer support.
 
 |Support case | Action |
 |---|---|
-|Something is wrong with reserved scooter|Can't happen, since doesn't do bookings|
+|Something is wrong with a reserved scooter|Can't happen, since you cannot book a Voi.|
+|User cannot find scooter|Ask the user to find another scooter. Voi will automatically create a search and rescue task.|
 |User cannot start trip|First troubleshoot, (unlocked kick to get some speed, push gas-button). Then contact Voi|
 |User cannot end active rental|First troubleshooting (check if the user located in the business area) Then contact Voi|
-|User cannot perform a booking|Make sure the partner has performed the required steps in your app. If it still is not working contact Voi|
-|The scooter is located outside of business area with active rental|Tell them to go back, then warn about the fee, then contact voi. (First time we forgive debt, then we charge them 25€)" |
+|User cannot perform a booking|Make sure the user has performed the required steps in your app. If it's still not working contact Voi|
+|The scooter is located outside of Voi:s business area with an active rental|Tell the user to go back and warn them about the 25€ fee. Then contact Voi and ask Voi to manually end the ride. (The first time we forgive the debt, after that we charge the user 25€ extra.) |
 |The scooter did not unlock, user insists on refund| |
 |The scooter is broken |Contact Voi|
 |User performs a traffic offence| |
 |User was in an accident |Contact Voi|
 |Insurance|Contact insuarance company|
-|Police reaches out with request|Refer them to the point of [contact for police data requests](/poc/)
-|User requests right to be forgotten|First delete the account in the Partner app, then ask them to contact Voi for a separate request|
-|User requests their data|Share data from your service and ask them to contact Voi for a separate request|
+|If police reaches out with request for data|Refer them to the point of [contact for police data requests](/poc/)
+|User requests right to be forgotten|First delete the account in the Partner app, then ask the user to contact Voi for a separate request|
+|User requests their data|Share data from your service and ask the user to contact Voi for a separate request|
 
 ## If voi gets contacted
 
 |Support case | Action |
 |---|---|
 |The scooter is broken |First help the user with the scooter, If needed contact partner and request  refund.|
-|User requests the right to be forgotten|Delete the data and ask user to contact partner for a separate request.|
+|User requests the right to be forgotten|Delete the data and ask the user to contact the partner for a separate request.|
 |Voi wants to charge rider post-ride for bad parking or other post-ride-fines.|Voi does not do that currently do that.|
 |User has issues with onboarding or registering an account|Refer to partner|
 |Users account is blocked|Refer to partner|
