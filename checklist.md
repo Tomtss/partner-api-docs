@@ -3,32 +3,38 @@ layout: text
 title: Checklist
 permalink: /checklist/
 menu: main
-description: What needs to happen before we go live?
+description: Deep integration checklist
 ---
-The following tasks need to be completed before we can go live.
+# Agreements
+The following agreements need to be reached. Contact our [Commercial point of contact](/poc/) for details.
 
-- Sign legal agreements
-	- Data sharing agreement
-	- Commercial agreement
+- Data sharing agreement
+- Commercial agreement
 
-- Technical integration
-	1. Implement MaaS Pro API in our staging enviroment
-	2. Test implemenation with vitural scooters
-	3. Request access to production
-	4. Final test in closed beta
-	5. Go live
-	6. Celebrate!
+# Technical integration
+Follow theese steps to complete a deep integration 
 
+0. Get access to staging from our [engineering point of contact](/poc/).
+1. Implement MaaS Pro API in our staging enviroment.
+2. Test implemenation with vitural scooters in staging enviroment.
+3. Request access to production from our [engineering point of contact](/poc/)
+4. Final test in closed beta.
+5. Go live on agreed date.
+6. Celebrate!
+
+# Meetings (optional)
+We offer the partners to align on details with [counterparts](/poc/) in the following areas. Reach out to them if you want to setup a meeting.
+
+- Payment alignments 
 - Customer support alignemnt
-	- Review customer support flows with Voi customer support(optional)
-	- Partner provides points of contact
-	- Partner provides method for requesting refunds
+- Engineering
 
-- Book a meeting with Voi finance(optional)
-	- Review payment flow
-	- Agree on details about invoicing material
+#  Launch activites
 
-- Engineering alignment
-	- Integration kickoff meeting(optional)
-	- Align with Voi on go-live date
-- Align on marketing + launch activities
+
+# Provide information
+Voi needs the following information from the partners
+
+- Planned go live date
+- Point of contact for customer support
+- Method for Voi to request partner to perform refund

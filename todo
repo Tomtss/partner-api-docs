@@ -1,6 +1,6 @@
 todo:
-Deep integration checklist
----
+Draft notice
+
 embed faq (in resources)
 temporary faq
 Battery level, Vat (and something else) has the wrong field type. (int but is float)
@@ -14,6 +14,7 @@ Deeplinks
 assets-menyny funkar inte som den ska(onload?)
 Bugg i listorna 
 POC - Payments
+virtual scooters
 
 design
 - Menu 
