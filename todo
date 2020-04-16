@@ -1,36 +1,49 @@
 todo:
 Draft notice
-
-embed faq (in resources)
-temporary faq
-Battery level, Vat (and something else) has the wrong field type. (int but is float)
-points of contact, traffic offences, insurance
-Checklist
-reread payments
-service hotlines - https://voiapp.slack.com/archives/DRF110NVA/p1586855803000100
-TOC(olika språk)
-zones
+--
+customer support info:
+general customer support in point of contact
+update "Needed from partner"
+How to deal with refunds 
+– for partner (limits and rules)
+– for Voi (what info to provide)
+---
+Bugs:
+assets-menyn funkar inte som den ska(onload?)
+---
 Deeplinks
-assets-menyny funkar inte som den ska(onload?)
-Bugg i listorna 
-POC - Payments
-virtual scooters
+--
+Updated customer flows from google docs
+--
+POC - Payment
+---
 
+code:
+- temporary faq
+- Battery level, Vat (and something else) has the wrong field type. (int but is float)
+points of contact, traffic offences, insurance
+Pricing ref i docs
+zones
+virtual scooters
+--
 design
 - Menu 
 - Text layout design
 - poc
 - illustrations
 - Checklist
-Pricing ref i docs
+--
+Runda två:
+Korra allt
 spelling
 Bort med första och sista meningen!
 Länka alla points of contacts till den sidan.
 
-Feedback
+Feedback:
 - payments
 - dev
 - Alex+Jasmine
 - Customer support
+- Deeplinks
 
 Writing for the web.

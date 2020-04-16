@@ -1,7 +1,7 @@
 ---
 layout: text
 title: Customer support
-permalink: /customerSupport/
+permalink: /customer-support/
 menu: main
 description: Customer support flows, ways of contact and service cases.
 ---
@@ -14,9 +14,27 @@ Voi aims to respond to any customer support errand within 2 hours, and within 30
 ## Ways for users and partners to contact Voi customer support.
 We use email for customer support.(In our app and on our webpage you can also fill in a form, but this is converted into an email). For regulatory reasons, we also provide phone-support in some markets. Phone have no access to admin tools, meaning they can answer simpl questions and most users calling in will get referred to e-mail-support.
 
-Voi uses the email-adress and, if available, the 4-letter code next to the QR-code on the scooters to identify the users in our internal systems. We need the same thing, and the name of your app, from partners.
+Voi uses the email-adress and, if available, the 4-letter code next to the QR-code on the scooters to identify the users in our internal systems. We need the same info, and the name of your app when you contact our support.
 
 Please provide this e-mail as the primary means of communication: [support@voiapp.io](support@voiapp.io)
+
+For the following cities, we provide phone-based customer support:
+
+City|Phone-number
+-----|-----
+Stuttgart|0711-88880808
+Düsseldorf|0211-91191008
+Dortmund|0231-53035005
+Nürnberg|0911-47880086
+Frankfurt|069-37305005
+Karlsruhe|0721-97665000
+Ingolstadt|0841-79408333
+München|089-24584000-0
+Berlin|030-40740740-7
+Hamburg|040-41112000-0
+Erfurt|0361-41771177
+Lübeck|0451-88333333
+Augsburg|0821-44999999
 
 ## Contacting partners customer support
 Voi will need the following information:
@@ -52,11 +70,11 @@ We will provide you with the users e-mail when contacting your customer support.
 |The scooter is broken |First help the user with the scooter, If needed contact partner and request  refund.|
 |User requests the right to be forgotten|Delete the data and ask the user to contact the partner for a separate request.|
 |Voi wants to charge rider post-ride for bad parking or other post-ride-fines.|Voi does not do that currently do that.|
-|User has issues with onboarding or registering an account|Refer to partner|
-|Users account is blocked|Refer to partner|
-|User cannot register their payment method|Refer to partner|
-|User cannot strat a ride because the user profile is not complete/not validated|Refer to partner|
-|Any questions regarding payments or invoicing|Refer to partner|
+|User has issues with onboarding or registering an account|Ask user to contact partner|
+|Users account is blocked|Ask user to contact partner|
+|User cannot register their payment method|Ask user to contact partner|
+|User cannot strat a ride because the user profile is not complete/not validated|Ask user to contact partner|
+|Any questions regarding payments or invoicing|Ask user to contact partner|
 
 # Faq
 Vois faq is available here: [https://voisupport.zendesk.com/hc/en-us](https://voisupport.zendesk.com/hc/en-us)

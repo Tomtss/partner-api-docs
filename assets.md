@@ -35,6 +35,7 @@ Voi encourages you to use our animations for onboarding users. We use a framewor
 * [End ride](https://lottiefiles.com/share/jnJW21)
 
 # Texts
+The most recently updated versions of theese documents are always available on the following adresses, we recommend including them as webviews in your apps. They are all available in multiple languages, you can pick the language on the respective page.
 
 * [Frequently asked questions](https://www.voiscooters.com/faq/) (available in English, Deutsch, French, Spanish and Portuguese.)
 * [Terms and conditions](https://www.voiscooters.com/voi-user-agreement-12rr/)
