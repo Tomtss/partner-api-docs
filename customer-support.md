@@ -38,12 +38,22 @@ Augsburg|0821-44999999
 
 ## Contacting partners customer support
 Voi will need the following information:
-* A way to contact your customer support.
-* A way to request that refunds are performed.
+* A point of contact for our customer support to contact your customer support.
+* A point of contact for requesting refunds.
+* A point of contact where we can refer users to you
 
 We will provide you with the users e-mail when contacting your customer support.
 
 # Service cases
+## Performing Refunds
+### Partner
+The partner is free to perform refunds up to 10€ and offer coupons for up to 20€. reach out to [customer support](/poc/) in order to recieve coupons.
+### Voi
+When Voi want to request a refund from a partner, we will contact you with the following information: 
+* The users e-mail
+* the sum to refund 
+* the time+date of the ride.
+
 ## If partner gets contacted
 
 |Support case | Action |
