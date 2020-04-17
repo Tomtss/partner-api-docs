@@ -47,7 +47,13 @@ We will provide you with the users e-mail when contacting your customer support.
 # Service cases
 ## Performing Refunds
 ### Partner
-The partner is free to perform refunds up to 10€ and offer coupons for up to 20€. reach out to [customer support](/poc/) in order to recieve coupons.
+For active rides, Voi customer support will end them and set the price. For already ended rides with serious issues , the partner is free to perform refunds for any extra costs. The gas not working is a serious issue, a broken bell is not. 
+
+The refund offered for serious issues is of up to 10€, offer coupons if it's more than that. (Unless the user specifically states that they need a refund in money.) 
+
+For minor issues you can offer a 1€ voucher if it affected the user experience a lot.
+
+The partner has to keep track of offered refunds and deduct them from amount owed when invoicing Voi.
 ### Voi
 When Voi want to request a refund from a partner, we will contact you with the following information: 
 * The users e-mail
