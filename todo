@@ -1,12 +1,6 @@
 todo:
 Draft notice
---
-Updated customer flows from google docs
----
-Bugs:
-assets-menyn funkar inte som den ska(onload?)
----
-Deeplinks
+
 --
 Updated customer flows from google docs again
 --
@@ -15,9 +9,11 @@ code:
 - temporary faq
 - Battery level, Vat (and something else) has the wrong field type. (int but is float)
 points of contact, traffic offences, insurance
-Pricing ref i docs
-zones
+Pricing ref in docs
+zones is very confusing
 virtual scooters
+--
+3PL
 --
 design
 - Menu 

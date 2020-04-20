@@ -30,9 +30,9 @@ button.onclick = function () {
 };
 
 window.addEventListener('scroll', throttle(getIds, 100));
-window.addEventListener('DOMContentLoaded', getIds);
+window.addEventListener('load', getIds);
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
 	let headers = document.getElementById('content').querySelectorAll('h1, h2');
 	offset = [...headers].map((h, i) => {
 		let next = headers[i + 1];
