@@ -23,21 +23,21 @@ https://lqfa.adj.st/voiapp/open
 ||maas|use if client is mobile as a service application|
 |adj_adgroup|app name|Put in your app name|
 |adj_creative|any grouping for example by city|optional, can be used for any grouping you want to share with us|
-|deeplink|voiapp deeplink|optional, url-encoded deeplinks specified in [Views](#views) below|
+|adj_deeplink|voiapp deeplink|optional, url-encoded deeplinks specified in [Views](#views) below|
 
 ## Example
-[https://lqfa.adj.st/voiapp/open?adj_t=3swpnku&adj_campaign=campaign2&adj_adgroup=adgroup2&adj_creative=creative2&adj_deeplink=deeplink=voiapp%3A%2F%2Fhome]()
+[https://lqfa.adj.st/voiapp/open?adj_t=3swpnku&adj_campaign=campaign2&adj_adgroup=adgroup2&adj_creative=creative2&adj_deeplink=voiapp%3A%2F%2Fhome]()
 
 # Views
 select a parameter based on what view you want the user to end up in
 
 |View|Parameter|
 |---|---|
-|Map|deeplink=voiapp%3A%2F%2Fhome|
-|Qr-code-scanner|deeplink=voiapp%3A%2F%2Fscan|
-|Send credits|deeplink=voiapp%3A%2F%2Ffree|
-|Redeem credits|deeplink=voiapp%3A%2F%2Fredeem%2Fcode|
-|Ride history|deeplink=voiapp%3A%2F%2Fhistory|
+|Map|adj_deeplink=voiapp%3A%2F%2Fhome|
+|Qr-code-scanner|adj_deeplink=voiapp%3A%2F%2Fscan|
+|Send credits|adj_deeplink=voiapp%3A%2F%2Ffree|
+|Redeem credits|adj_deeplink=voiapp%3A%2F%2Fredeem%2Fcode|
+|Ride history|adj_deeplink=voiapp%3A%2F%2Fhistory|
 |Rules for riding | deeplink=voiapp%3A%2F%2Frule|
 |Help | deeplink=voiapp%3A%2F%2Fhelp|
 |Profile page | deeplink=voiapp%3A%2F%2Fprofile|
