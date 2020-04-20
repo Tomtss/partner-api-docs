@@ -7,7 +7,7 @@ description: Customer support flows, ways of contact and service cases.
 ---
 
 # Customer Support
-Voi is responsible for any service cases related to the ride, accidents, police and insurance. Any other requests are handled by the partner. By presenting Voi contact information while the user is unlocking, riding and unlocking the scooter, most support cases end up in the right place. If service requests are sent to the wrong customer support, Customer support forwards them to their counterpart at the other company. Refunds are always performed by the partner, but sometime requested by Voi.
+Voi is responsible for any service cases related to the ride, accidents and police. Any other requests are handled by the partner. By presenting Voi contact information while the user is unlocking, riding and unlocking the scooter, most support cases end up in the right place. If service requests are sent to the wrong customer support, Customer support forwards them to their counterpart at the other company. Refunds are always performed by the partner, but sometime requested by Voi.
 
 Voi aims to respond to any customer support errand within 2 hours, and within 30 minutes for urgent matters.
 
@@ -64,33 +64,30 @@ When Voi want to request a refund from a partner, we will contact you with the f
 
 |Support case | Action |
 |---|---|
-|Something is wrong with a reserved scooter|Can't happen, since you cannot book a Voi.|
-|User cannot find scooter|Ask the user to find another scooter. Voi will automatically create a search and rescue task for the missing scooter.|
-|User cannot start the trip|First troubleshoot(make sure the scooter is unlocked, kick to get some speed and push gas-button). Then contact Voi|
-|User cannot end active rental|First troubleshooting (check if the user located in the business area). Then contact Voi|
-|User cannot perform a booking|Make sure the user has performed the required steps in your app. If it's still not working contact Voi|
-|The scooter is located outside of Voi:s business area with an active rental|Tell the user to go back and warn them about the 25€ fee. Then contact Voi and ask Voi to manually end the ride. (The first time we forgive the debt, after that we charge the user 25€ extra.) |
-|The scooter did not unlock, user insists on refund| |
-|The scooter is broken |Contact Voi|
-|User performs a traffic offence| |
-|User was in an accident |Contact Voi|
-|Insurance|Contact insuarance company|
-|If police reaches out with request for data|Refer them to the point of [contact for police data requests](/poc/)
-|User requests right to be forgotten|First delete the account in the Partner app, then ask the user to contact Voi for a separate request|
-|User requests their data|Share data from your service and ask the user to contact Voi for a separate request|
+|Reserved wrong scooter/couldn't be found/is damaged|Can’t happen, since you cannot book a Voi.|
+|User cannot find scooters|Ask the user to find another scooter. Voi will automatically create a search and rescue task for the missing scooter.|
+|User cannot get the scooter to move|First troubleshoot(make sure the scooter is unlocked, ask the user to kick to get some speed and push gas-button). Contact Voi. If the ride is less than 2 min and less than 100m the price will be zero. Partner may refund the end user. @Aldona will define a threshold for the price.|
+|Active rental cannot be ended|First troubleshoot (check if the user is located in an area where you are allowed to park). Ask for the duration of the ride and then contact Voi to manually end it.|
+|User cannot perform start a ride|Make sure the user has performed the required steps in your app. If it still is not working contact Voi.|
+|The scooter is located outside of Voi:s business area with an active rental|Contact the user and ask them to go back to the operational area and warn them about the 25€ fee. If the user doesn't want to go back tthen contact Voi and let them know what they said. (We charge the user 25€ extra as a part of the end-ride(it will be invoiced by moovel at the end of the ride)). Voi will contact the user moving forward.|
+|The scooter did not unlock, user insists on refund|There will be no cost since the scooter didn't unlock. Contact Voi with the four letter code so we can take care of the scooter.|
+|A user finds broken scooter|If you get the four letter code, forward it to Voi. Otherwise, contact the user and request the four letter code|
+|Traffic authority contacts partner because user comitted traffic offences|Forward request to Voi|
+|User was in an accident|Ask user to contact Voi.|
+|If police reaches out with request for data|Refer them to the point of [contact for police data requests](/poc/)|
+|User requests access to their data|Do your normal procedure and ask them to contact Voi for a separate right to be forgotten request|
+|User requests right to be forgotten|Do your normal procedure and ask them to contact Voi for a separate request|
 
 ## If voi gets contacted
 
 |Support case | Action |
 |---|---|
-|The scooter is broken |First help the user with the scooter, If needed contact partner and request  refund.|
-|User requests the right to be forgotten|Delete the data and ask the user to contact the partner for a separate request.|
+|The scooter is broken|First help with the scooter. If necessary contact partner for refund request. With the sum to refund and the time+date of the ride.|
 |Voi wants to charge rider post-ride for bad parking or other post-ride-fines.|Voi does not do that currently do that.|
-|User has issues with onboarding or registering an account|Ask user to contact partner|
-|Users account is blocked|Ask user to contact partner|
-|User cannot register their payment method|Ask user to contact partner|
-|User cannot strat a ride because the user profile is not complete/not validated|Ask user to contact partner|
-|Any questions regarding payments or invoicing|Ask user to contact partner|
+|Any questions regarding account and payments|Forward request to partner|
+|Voi see suspicious activities|Contact partner|
+|User requests access to their data|Do your normal procedure and ask them to contact Partner for a separate right to be forgotten request|
+|User requests right to be forgotten|Do your nomral procedure and ask them to contact Partner for a separate request|
 
 # Faq
 Vois faq is available here: [https://voisupport.zendesk.com/hc/en-us](https://voisupport.zendesk.com/hc/en-us)
