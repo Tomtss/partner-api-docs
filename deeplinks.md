@@ -38,10 +38,10 @@ select a parameter based on what view you want the user to end up in
 |Send credits|adj_deeplink=voiapp%3A%2F%2Ffree|
 |Redeem credits|adj_deeplink=voiapp%3A%2F%2Fredeem%2Fcode|
 |Ride history|adj_deeplink=voiapp%3A%2F%2Fhistory|
-|Rules for riding | deeplink=voiapp%3A%2F%2Frule|
-|Help | deeplink=voiapp%3A%2F%2Fhelp|
-|Profile page | deeplink=voiapp%3A%2F%2Fprofile|
-|Edit user details | deeplink=voiapp%3A%2F%2Fprofiledetail|
-|Edit payment methods | deeplink=voiapp%3A%2F%2Fpayment|
-|View credits | deeplink=voiapp%3A%2F%2Fcredit|
-|Select language | deeplink=voiapp%3A%2F%2Flanguage|
+|Rules for riding |adj_deeplink=voiapp%3A%2F%2Frule|
+|Help |adj_deeplink=voiapp%3A%2F%2Fhelp|
+|Profile page |adj_deeplink=voiapp%3A%2F%2Fprofile|
+|Edit user details |adj_deeplink=voiapp%3A%2F%2Fprofiledetail|
+|Edit payment methods |adj_deeplink=voiapp%3A%2F%2Fpayment|
+|View credits |adj_deeplink=voiapp%3A%2F%2Fcredit|
+|Select language |adj_deeplink=voiapp%3A%2F%2Flanguage|
