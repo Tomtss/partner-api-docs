@@ -18,14 +18,11 @@ curl "https://partners.voiapp.io/v1/...
 
 API endpoints available for the mobility partner, are protected with token authentication using the key `X-Auth-Token` in the request header with the token you received from Voi when signing up.
 
-If you are interested in using our API please contact us at [api@voiapp.io](mailto:api@voiapp.io).
 ## Header Parameters
 
 Key | Value
 --------- | -----------
 X-Auth-Token |  your-token
-
-<aside class="warning">For authentication using the MDS and GBFS API, please see the specific documentation <a href="#mds">here</a>.</aside>
 
 # User
 
@@ -65,7 +62,7 @@ externalId | string |  The user's id created in the API consumers own system| op
 
 ## Register user
 
-Register user creates a new user with a unique user id. A user is required to be registered before a rental can be started.
+Register user creates a new user with a unique user id. A user is required to be registered before a rental can be started. No fields in this method have any uniquness constraints.
 
 <aside class="warning">There are no uniqueness constraints on any of the provided parameters, so idempotency is not guaranteed. Two identical requests to register user will create two separate users with two different user id's</aside>
 
@@ -76,14 +73,12 @@ Register user creates a new user with a unique user id. A user is required to be
 
 field | type | description | presence
 ------ | -------- | -------- | -------
-email | string | The user's email address| required
+email | string | The user's email address, is used by customer support to identify users when contacting Voi.| required
 firstName | string |The user's first name | optional
 lastName | string | The user's last name| optional
-phoneNumber | string | The user's phone number| optional
-externalId | string |  The user's id created in the API consumers own system| optional
-paymentToken | string |  The payment token for the users payment solution| optional
-
-<aside class="warning">Voi doesn't recommend integrating support for payment providers through Voi API. The support for the partners specific payment provider is therefor not guaranteed. Please contact Voi for more information.</aside>
+phoneNumber | string | The user's phone number. (not used as identifier)| optional
+externalId | string |  The user's id created in the API consumers own system. This is used by customer support, debugging and as a reference in the invoicing material. | optional
+productId | string |  The  product id (UUID Version 4)| optional
 
 ## Get user
 
@@ -125,7 +120,7 @@ parameter  | description | presence
 id |  the user id (UUID version 4) | required
 
 # Rental
-This section describes the possible interactions with the rental domain of the API.
+A rental is the domain where a user is having access to the scooter. It is done by starting and ending the rental. At the end of the rental the price will be posted so that the partner can charge the user. A user only rent one scooter at the time and it is not possible to pre-book a scooter.
 
 ## Rental model
 > The rental response model.
@@ -179,13 +174,13 @@ field | type | description | presence
 ------ | -------- | -------- | -------
 id | string | The rental's unique id (UUID Version 4)| required
 type | string | The type will be "rental"| required
-rentalDurationMin | integer | The rental's duration, rounded up, in minutes| required
+rentalDurationMin | integer | The rental's duration, in full minutes, rounded up. Used for calculating charge.| required
 cost | object | Contains rental's cost information | required
 total | object | Contains the rental's total cost | required
 amount | integer | The rental's amount in minor units (also called subunit)| required
 currency | string | The rental's alphabetic currency code (ISO 4217) | required     
-vat | integer | The rental's VAT amount in minor units (also called subunit) | required       
-state |   string   |  The current state of the rental ("RUNNING" or "ENDED")      | required               
+vat | integer | The rental's VAT amount in minor units (also called subunit) | required 
+state |   string   |  The current state of the rental  <br> RUNNING - During rental<br> ENDED - After rental<br> ENDED_WITH_NO_CHARGE - After rental if it was automatically ended. [Read here for details](/payments/#prices-and-fees)<br>ENDED_INTERNALLY - Ended by Voi, typically because the user forgot to.| required               
 startedAt | string     |  Time when the rental started (RFC3339 in UTC) | required           
 endedAt |  string    |   Time when the rental ended (RFC3339 in UTC)      | optional             
 vehicle |  object    |  Contains information about the vehicle used in the rental      | required  
@@ -202,6 +197,11 @@ latitude | number | The latitude component in a location | required (if parent o
 <aside class="warning">The <code>amount</code> is always in <b>minor units</b>. In most currencies the relation between the major unit and the minor unit is 1/100.<br>
 <b>Example:</b> In the currency euro (EUR), 100 of the minor unit cent corresponds with one major unit of EUR. <br>
 12.13 euro is sent as <code>{"amount": 1213, "currency": "EUR"}</code> </aside>
+
+
+<aside class="warning">
+  If location for start or end ride is provided via the API, the phones location will be used to define the end-ride postion. Otherwise. The scooters location – that is updated every 15 seconds – will be used.
+</aside>
 
 
 ## Start rental
@@ -268,8 +268,8 @@ Start rental makes a vehicle accessible to ride with. To request to start a rent
 field | type | description | presence
 ------ | -------- | -------- | -------
 userId | string | The id of the user for whom the rental is started | required
-vehicleId | string | The id of the vehicle which will be rented| required
-userStartLocation | string | The user’s location when starting the rental| optional
+vehicleId | string | The id of the vehicle which will be rented. The vechileId is represented as a QR code on the scooter and always a four character alphanumeric string.| required
+userStartLocation | object | The user’s location when starting the rental| optional
 
 
 ## End rental
@@ -349,7 +349,7 @@ rentalId |  The id of the rental that is to be ended
 
 field | type | description | presence
 ------ | -------- | -------- | -------
-userEndLocation | string | The user’s location when ending the rental | optional
+userEndLocation | object | The user’s location when ending the rental | optional
 
 
 
@@ -643,7 +643,7 @@ parameter  | description | presence
 ------ | -------- | -------
 id |  The vehicle's id (UUID version 4)  | required
 
-# Zone
+# Zone Areas
 
 ## Get zone areas
 
@@ -702,21 +702,19 @@ id |  The vehicle's id (UUID version 4)  | required
 }
 ```
 
-To able to display the correct zone information in a provider app, the geolocation of objects such as no-parking areas, slow areas, and operational areas can be received using the get zones endpoint.
+Within each operational Zone(a metropolitan area or city), there are zone areas, such as no-parking areas, slow areas, and operational areas. In order to display Zone areas in a partner app, the geolocation can be received using the get zones endpoint.
 
-### Supported Areas
+### Supported Zone Areas
 
 area type  | Description
 ------ | -------- 
 operations |  The operational area, where Voi operates
-no-parking |  An area where a rental can't be ended
-parking-spot |   An area where a rental must be ended
-slow-zone |  An area where a vehicle's max-speed will be lowered
+no-parking |  An area where a rentals can't be ended* 
+parking-spot |  An area where a rental must be ended*
+slow-zone |  An area where a vehicle's max-speed will be lowered, the maximum speed is not available.
 
+Each operational zone operates with either mandatory parking spots or free floating fleet. That means a zone can only have either no-parking or parking-spot zone areas, never both.
 
-For a zone with parking-spot areas, vehicles are only allowed to be parked within the parking-spot areas.
-<br>For a zone with no-parking areas, vehicles are allowed to be parked anywhere within the operational area except in the no-parking areas.
-<aside class="warning"> A zone can either have <b>parking-spot</b> areas or <b>no-parking</b> areas but not both. They are mutually exclusive.</aside> 
 
 ### HTTPS request
 
@@ -734,8 +732,36 @@ zoneId |  The id of the requested zone
  
 field | type | description | presence
 ------ | -------- | -------- | -------
-id | string | The zone id for the requested areas  | required
+id | string | The operational zone id  | required
 type | string | For zones the type will always be "area"  | required
 area_type | string | The area type (one of the supported area types)| required
-geometry | object | Describes the geometry for the area (geoJSON)| required
+geometry | object | Describes the geometry for the area (geoJSON), described as multipolygons.| required
 
+# Testing and launching
+## Sandbox
+
+## Going live
+
+# Miscellaneous
+## GDPR requests
+GDPR requests are perfomed by [Customer support](/customer-support/)
+## Endpoints not built
+For clarity, here we list endpoints that are not available but at some point requested. We will notify all partners if they become available.
+
+### User
+* Edit
+* Delete
+
+### Product
+Contact Voi to add or update products.
+* Create
+* Update
+* Delete
+
+### Zone
+You will recieve the id for the zone you are operating in once you recieve access from Voi.
+* Get
+
+### Rental
+Since the feature is not widely used, we have not included pauses in our API.
+*

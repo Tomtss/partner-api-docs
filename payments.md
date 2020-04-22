@@ -24,7 +24,7 @@ __Parking fees etc__ Voi don't performs any additional charges after the ride is
 The partner is responsible for making sure they can collect the money from the end-user, including fraud prevention. (We do a 5€ pre auth payment before the first ride. The partner can do what ever they want.)
 
 # Invoicing details
-The partner can either deduct their comission from their invoice or send a separate invoice to Voi. If the partner is to invoice Voi, use the following invoicing details.
+The partner can either deduct their comission from the amout owed, or send a separate invoice to Voi for their comission. If the partner is to invoice Voi, use the following invoicing details.
 
 ## Germany
 Leopoldstraße 180, 80804 München<br />

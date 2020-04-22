@@ -1,20 +1,12 @@
 todo:
-
-Updated customer flows from google docs again
-points of contact, traffic offences, insurance
-
-images to deeplinks
---
-
-code:
 - temporary faq
-- Battery level, Vat (and something else) has the wrong field type. (int but is float)
-Pricing ref in docs
-zones is very confusing
 virtual scooters
-
+How often should they be queried?
+App name in user response model?
 --
 Draft notice
+
+Todolist
 --
 3PL
 --
@@ -34,6 +26,7 @@ Länka alla points of contacts till den sidan.
 Feedback:
 - payments
 - dev
+- Kolja
 - Alex+Jasmine
 - Customer support
 - Deeplinks
