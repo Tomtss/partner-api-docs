@@ -1,14 +1,13 @@
 todo:
-- temporary faq
-virtual scooters
-How often should they be queried?
-App name in user response model?
+- temporary faq, auth
+- temporary faq, errors
+- more error codes
+3PL - explain more
+How often can/should endpoints be queried?
+- brand.voiscooters.com 
+- invoicing urls(not static)
 --
-Draft notice
 
-Todolist
---
-3PL
 --
 design
 - Menu 

@@ -6,8 +6,19 @@ menu: main
 description: A deep integration API, used for completing full user journeys.
 ---
 # Introduction
+## Api contract
+Regardless of new features launched in the future, Voi comits to supporting the current feature-set for partners and not perform braking changes to this version of the API, though we might add new endpoints. 
 
-This documentation is outlining the available API’s for a mobility partner to integrate into Voi’s vehicle rental service.
+## Development
+Development is performed against our staging enviroment. Within it, we provide virtual scooters and relevant zones, located in the Operational Zone of Berlin. Virutal scooters differ from real scooters in a number of ways.
+
+* Whenever you call the scooter with unlock or lock it will respond with success.
+* The scooters location will never change.
+
+## Going live
+Once the development is done, reach out to our [point of contact for engineering](/poc/) to recieve keys to our production enviroment with access to the city you operate in. Now you will be able to test the integration with real scooters that you can pick of the street. Test the integration in a closed beta before giving access to all your users.
+
+
 
 # Authentication
 
@@ -59,6 +70,17 @@ lastName | string | The user's last name| optional
 phoneNumber | string | The user's phone number| optional
 externalId | string |  The user's id created in the API consumers own system| optional
 
+### Errors
+The following errors can be returned for this model.
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalidinput|InvalidInput
+StatusBadRequest|Thisexternaluseridalreadyexists|ExternalUserIDAlreadyExists
+StatusBadRequest|Emptyuseremailid|EmptyUserEmailID
+StatusInternalServerError|Unabletoregisteruser|UserRegistrationFailed
+StatusInternalServerError|Failedtogetuser|ErrFailedToGetUser
+StatusInternalServerError|Failedtoregisteruserpaymentmethod|ErrFailedPaymentRegistration
 
 ## Register user
 
@@ -79,6 +101,7 @@ lastName | string | The user's last name| optional
 phoneNumber | string | The user's phone number. (not used as identifier)| optional
 externalId | string |  The user's id created in the API consumers own system. This is used by customer support, debugging and as a reference in the invoicing material. | optional
 productId | string |  The  product id (UUID Version 4)| optional
+
 
 ## Get user
 
@@ -118,6 +141,7 @@ Get user by its user id
 parameter  | description | presence
 ------ | -------- | -------
 id |  the user id (UUID version 4) | required
+
 
 # Rental
 A rental is the domain where a user is having access to the scooter. It is done by starting and ending the rental. At the end of the rental the price will be posted so that the partner can charge the user. A user only rent one scooter at the time and it is not possible to pre-book a scooter.
@@ -175,12 +199,12 @@ field | type | description | presence
 id | string | The rental's unique id (UUID Version 4)| required
 type | string | The type will be "rental"| required
 rentalDurationMin | integer | The rental's duration, in full minutes, rounded up. Used for calculating charge.| required
-cost | object | Contains rental's cost information | required
+cost | object | Contains rental's cost information, | required
 total | object | Contains the rental's total cost | required
-amount | integer | The rental's amount in minor units (also called subunit)| required
-currency | string | The rental's alphabetic currency code (ISO 4217) | required     
-vat | integer | The rental's VAT amount in minor units (also called subunit) | required 
-state |   string   |  The current state of the rental  <br> RUNNING - During rental<br> ENDED - After rental<br> ENDED_WITH_NO_CHARGE - After rental if it was automatically ended. [Read here for details](/payments/#prices-and-fees)<br>ENDED_INTERNALLY - Ended by Voi, typically because the user forgot to.| required               
+amount | integer | The priced amount, including VAT, in minor units (also called subunit)| required
+currency | string | The alphabetic currency code (ISO 4217) | required     
+vat | integer | The price VAT amount in minor units (also called subunit) | required 
+state |   string   |  The current state of the rental  <br> RUNNING - During rental<br> ENDED - After rental<br> ENDED_WITH_NO_CHARGE - After rental if it was automatically ended. [more details here](/payments/#prices-and-fees)<br>ENDED_INTERNALLY - Ended by Voi, typically because the user forgot to.| required               
 startedAt | string     |  Time when the rental started (RFC3339 in UTC) | required           
 endedAt |  string    |   Time when the rental ended (RFC3339 in UTC)      | optional             
 vehicle |  object    |  Contains information about the vehicle used in the rental      | required  
@@ -203,6 +227,31 @@ latitude | number | The latitude component in a location | required (if parent o
   If location for start or end ride is provided via the API, the phones location will be used to define the end-ride postion. Otherwise. The scooters location – that is updated every 15 seconds – will be used.
 </aside>
 
+### Errors
+The following errors can be returned for this model.
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalidinput|InvalidInput
+StatusBadRequest|Invaliduserid|InvalidUserId
+StatusBadRequest|Invalidvehicleid|InvalidVehicleId
+StatusBadRequest|Invalidrentalid|InvalidRentalID
+StatusBadRequest|Userdoesnotexist|UserNotFound
+StatusBadRequest|Thisuseralreadyhasarental|RentalAlreadyExists
+StatusNotFound|RentalIDdoesnotexist|RentalIDDoesNotExist
+StatusBadRequest|Rentalisalreadyendedforthisrentalid|RentalAlreadyEnded
+StatusInternalServerError|Unabletostartrental|FailedToStartRental
+StatusInternalServerError|Unabletoendrental|FailedToEndRental
+StatusBadRequest|Vehiclenotfound|VehicleNotFound
+StatusInternalServerError|Failedtofetchvehicle|FailedToFetchVehicle
+StatusInternalServerError|failedtoupdatevehicle|FailedToUpdateVehicle
+StatusInternalServerError|Unabletolockvehicle|FailedToLockVehicle
+StatusInternalServerError|Unabletounlockvehicle|FailedToUnlockVehicle
+StatusInternalServerError|Unabletocalculateendrentalprice|FailedToCalculatePrice
+StatusInternalServerError|Unabletovalidateparkingarea|FailedToValidateParking
+StatusInternalServerError|ThisisnoparkingareaCannotendrental|FailedToEndRentalNoParking
+StatusInternalServerError|Unabletovalidateshortrental|FailedToValidateShortRental
+StatusNotFound|Unabletofindactiverental|ActiveRentalNotFound
 
 ## Start rental
 
@@ -408,6 +457,7 @@ parameter  | description
 id |  The user id for the requested rentals
 
 # Pricing
+The cost of renting a Voi can differ, amongst others based on where the scooter is located and what time it is. When the user starts the ride, we comit to the price presented at that time. There are exeptions that will cause the price to change, [more details here](/payments/#prices-and-fees).
 ## Pricing model
 > The vehicle response model.
 
@@ -432,10 +482,18 @@ field | type | description | presence
 ------ | -------- | -------- | -------
 id | string | The vehicle's id (UUID version 4) for which the pricing is derived | required
 type | string | For pricing the type will always be "pricing"  | required
-pricePerMinute | integer | the price per minute in minor units (also called subunit)| required
-startPrice | integer | the start price in minor units (also called subunit)| required
+pricePerMinute | integer | the price per minute, excluding Vat in minor units (also called subunit)| required
+startPrice | integer | the start price, excluding Vat in minor units (also called subunit)| required
 currency | string | the three letter alphabetic currency code (ISO 4217) | required     
 vat | integer | the VAT percentage  | required  
+
+### Errors
+
+The following errors can be returned for this model.
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalidvehicleid|InvalidVehicleId
 
 ## Get price
 
@@ -509,6 +567,15 @@ location | object | The vehicle’s location| required
 longitude | number | the longitude component in a location | required 
 latitude | number | the latitude component in a location | required 
 code | string |  the vehicle code, visually available on the vehicle | required
+
+### Errors
+
+The following errors can be returned for this model.
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Vehiclecodewasempty|EmptyVehicleCode
+StatusBadRequest|Vehicleidwasempty|EmptyVehicleID
 
 ## Get vehicles by zone
 > A get vehicles by zone request.
@@ -737,31 +804,30 @@ type | string | For zones the type will always be "area"  | required
 area_type | string | The area type (one of the supported area types)| required
 geometry | object | Describes the geometry for the area (geoJSON), described as multipolygons.| required
 
-# Testing and launching
-## Sandbox
+### Errors
 
-## Going live
+The following errors can be returned for this model.
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Zoneidwasempty|EmptyZoneID
+
 
 # Miscellaneous
 ## GDPR requests
-GDPR requests are perfomed by [Customer support](/customer-support/)
+Since the righ to be forgotten and other GDPR-requests require that we go through all our systems. Requests are handled by either the partner or end user contacting [customer support](/customer-support/). 
+
 ## Endpoints not built
-For clarity, here we list endpoints that are not available but at some point requested. We will notify all partners if they become available.
+For clarity, here we list endpoints that are not available but have at some point been requested. We will notify all our partners if they become available.
 
-### User
-* Edit
-* Delete
+### Users
+It's not possible for partners to update user details or delete users.
 
-### Product
-Contact Voi to add or update products.
-* Create
-* Update
-* Delete
+### Products
+Partners cannot add, update or delete products, contact Voi if you need to do this.
 
-### Zone
-You will recieve the id for the zone you are operating in once you recieve access from Voi.
-* Get
+### Operational zones
+There is no endpoint to see what operational zones you have access to. You will recieve the id for the zone you are operating in once you recieve access to them from Voi.
 
-### Rental
-Since the feature is not widely used, we have not included pauses in our API.
-*
+### Lock and reserve 
+Since the feature is not widely used, we have not included lock and reserve in our API.

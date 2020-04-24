@@ -332,3 +332,53 @@ Field Name | type | Defines
 `language` | String | An IETF language tag indicating the language that will be used throughout the rest of the files. This defines a single language tag only. See [bcp47](https://tools.ietf.org/html/bcp47) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) for details about the format of this tag
 `name` | String | Full name of the system to be displayed to customers
 `timezone` | String |   The time zone where the system is located. Time zone names never contain the space character but may contain an underscore. Please refer to the "TZ" value [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for a list of valid values
+
+# Serivce Areas
+> A service area request
+
+```shell
+$ curl -X GET https://mds.voiapp.io/partners/v1/1/service-areas.json 
+```
+
+Within each operational Zone(a metropolitan area or city), there are zone areas, such as no-parking areas, slow areas, and operational areas. In order to display Zone areas in a partner app, the geolocation can be received using the get zones endpoint.
+
+
+### Response
+
+
+> A service area response
+
+```shell
+{
+  "data": [
+    {
+      "is_forbidden_drop_off": true,
+      "is_forbidden_riding": true,
+      "is_preferred_drop_off": true,
+      "service_area": {},
+      "service_area_id": [
+        0
+      ],
+      "speed_cap": 0
+    }
+  ],
+  "errors": [
+    {
+      "code": "string",
+      "detail": "string"
+    }
+  ],
+  "last_updated": 0,
+  "ttl": 0
+}
+```
+
+Field Name | type | description
+--- | --- | ---
+is_forbidden_drop_off | bool | 
+is_forbidden_riding | bool | 
+is_preferred_drop_off | bool |
+service_area | object |
+service_area_id | array | 
+speed_cap | int |
+

@@ -5,6 +5,9 @@ permalink: /assets/
 menu: main
 description: Graphics, legal documents
 ---
+# Brand guidelines
+Vois brand guidline must be adhered to when using Voi brand. It can be found at [brand.voiscooters.com](https://brand.voiscooters.com/)
+
 # Images
 
 ## Scooters
