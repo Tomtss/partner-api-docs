@@ -1,7 +1,4 @@
 todo:
-reduce right-hand column
-smaller font in tables
-
 User erros: Move the current once to register user 
 StatusInternalServerError - don't go in to detail in docs
 Add invalid user id for get 
@@ -22,8 +19,7 @@ ErrInvalidUserID = errors.ResponseError{
 	}
 
 Go through errors in docs and break apart and ask for clarification
-Skip global errors
-Add auth-questions
+Answer auth-questions
 
 
 Service areas:(get from mats)
@@ -47,9 +43,13 @@ field: receipt
 object: {url: 'https://example.com/'}
 Note: The receipt link is only readable for 15 minutes. 
 
-Update user(jesper adds)
+Update user(jesper sends details)
 
 "Planned vs not planned" istället för not built
+
+css:
+reduce right-hand column width
+smaller font in tables
 
 - checklist
 --
