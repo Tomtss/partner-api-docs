@@ -1,15 +1,59 @@
 todo:
-- temporary faq, auth
-- temporary faq, errors
-- more error codes
-3PL - explain more
-How often can/should endpoints be queried?
-- brand.voiscooters.com 
-- invoicing urls(not static)
---
+reduce right-hand column
+smaller font in tables
 
+User erros: Move the current once to register user 
+StatusInternalServerError - don't go in to detail in docs
+Add invalid user id for get 
+ErrInvalidUserID = errors.ResponseError{
+		Code:    http.StatusBadRequest,
+		Detail:  "Invalid user id",
+		ErrCode: "InvalidUserId",
+	}
+	ErrUserNotFound = errors.ResponseError{
+		Code:    http.StatusNotFound,
+		Detail:  "User not found",
+		ErrCode: "ErrUserNotFound",
+	}
+	ErrFailedToGetUser = errors.ResponseError{
+		Code:    http.StatusInternalServerError,
+		Detail:  "Failed to get user",
+		ErrCode: "ErrFailedToGetUser",
+	}
+
+Go through errors in docs and break apart and ask for clarification
+Skip global errors
+Add auth-questions
+
+
+Service areas:(get from mats)
+is_forbidden_drop_off	bool	 
+is_forbidden_riding	 bool	 
+is_preferred_drop_off	 bool	 
+service_area	 object	 
+service_area_id	 array	 
+speed_cap	int
+
+user story: add parking-zones to maas Light
+
+Updates:
+pricing: Avoid caching price for vechiles but rather get it when needed
+Vechile: 7s 
+Areas: once per day?
+Others, no caching
+
+receipt
+field: receipt
+object: {url: 'https://example.com/'}
+Note: The receipt link is only readable for 15 minutes. 
+
+Update user(jesper adds)
+
+"Planned vs not planned" istället för not built
+
+- checklist
 --
-design
+design:
 - Menu 
 - Text layout design
 - poc
@@ -20,14 +64,18 @@ Runda två:
 Korra allt
 spelling
 Bort med första och sista meningen!
-Länka alla points of contacts till den sidan.
 
 Feedback:
 - payments
 - dev
+-- Errors
+-- temporary faq, auth
+-- Global error codes
+-- 3PL - explain more
+-- How often can/should endpoints be queried?
+-- invoicing urls(not static)
 - Kolja
 - Alex+Jasmine
-- Customer support
-- Deeplinks
+
 
 Writing for the web.
