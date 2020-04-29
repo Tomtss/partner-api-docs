@@ -1,26 +1,5 @@
 todo:
-User erros: Move the current once to register user 
-StatusInternalServerError - don't go in to detail in docs
-Add invalid user id for get 
-ErrInvalidUserID = errors.ResponseError{
-		Code:    http.StatusBadRequest,
-		Detail:  "Invalid user id",
-		ErrCode: "InvalidUserId",
-	}
-	ErrUserNotFound = errors.ResponseError{
-		Code:    http.StatusNotFound,
-		Detail:  "User not found",
-		ErrCode: "ErrUserNotFound",
-	}
-	ErrFailedToGetUser = errors.ResponseError{
-		Code:    http.StatusInternalServerError,
-		Detail:  "Failed to get user",
-		ErrCode: "ErrFailedToGetUser",
-	}
-
-Go through errors in docs and break apart and ask for clarification
-Answer auth-questions
-
+3 year token
 
 Service areas:(get from mats)
 is_forbidden_drop_off	bool	 
@@ -30,10 +9,7 @@ service_area	 object
 service_area_id	 array	 
 speed_cap	int
 
-user story: add parking-zones to maas Light
-
 Updates:
-pricing: Avoid caching price for vechiles but rather get it when needed
 Vechile: 7s 
 Areas: once per day?
 Others, no caching
@@ -46,6 +22,10 @@ Note: The receipt link is only readable for 15 minutes.
 Update user(jesper sends details)
 
 "Planned vs not planned" istället för not built
+
+Errors för vechile eller vad det var 
+
+Läs docs
 
 css:
 reduce right-hand column width
