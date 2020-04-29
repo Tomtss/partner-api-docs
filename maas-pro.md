@@ -27,7 +27,7 @@ curl "https://partners.voiapp.io/v1/...
   -H "X-Auth-Token: $TOKEN"
 ```
 
-API endpoints available for the mobility partner, are protected with token authentication using the key `X-Auth-Token` in the request header with the token you received from Voi when signing up.
+API endpoints available for the mobility partner, are protected with token authentication using the key `X-Auth-Token` in the request header with the token you received from Voi when signing up. The token lasts 3 years we will send a new token to your partner-email-adress in advance of its expiration.
 
 ## Header Parameters
 
@@ -70,17 +70,7 @@ lastName | string | The user's last name| optional
 phoneNumber | string | The user's phone number| optional
 externalId | string |  The user's id created in the API consumers own system| optional
 
-### Errors
-The following errors can be returned for this model.
 
-Code|Detail|ErrorCode
------|-----|-----
-StatusBadRequest|Invalidinput|InvalidInput
-StatusBadRequest|Thisexternaluseridalreadyexists|ExternalUserIDAlreadyExists
-StatusBadRequest|Emptyuseremailid|EmptyUserEmailID
-StatusInternalServerError|Unabletoregisteruser|UserRegistrationFailed
-StatusInternalServerError|Failedtogetuser|ErrFailedToGetUser
-StatusInternalServerError|Failedtoregisteruserpaymentmethod|ErrFailedPaymentRegistration
 
 ## Register user
 
@@ -101,6 +91,15 @@ lastName | string | The user's last name| optional
 phoneNumber | string | The user's phone number. (not used as identifier)| optional
 externalId | string |  The user's id created in the API consumers own system. This is used by customer support, debugging and as a reference in the invoicing material. | optional
 productId | string |  The  product id (UUID Version 4)| optional
+
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalidinput|InvalidInput
+StatusBadRequest|Thisexternaluseridalreadyexists|ExternalUserIDAlreadyExists
+StatusBadRequest|Emptyuseremailid|EmptyUserEmailID
+StatusInternalServerError| | 
 
 
 ## Get user
@@ -141,6 +140,14 @@ Get user by its user id
 parameter  | description | presence
 ------ | -------- | -------
 id |  the user id (UUID version 4) | required
+
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalid user id|InvalidUserId
+StatusNotFound|User not found|ErrUserNotFound
+StatusInternalServerError| | 
 
 
 # Rental
@@ -186,7 +193,8 @@ A rental is the domain where a user is having access to the scooter. It is done 
                 "vehicleEndLocation": {
                     "longitude": 18.07571600384931,
                     "latitude": 59.319013004374841
-                }
+                },
+                receipt: {url: 'https://example.com/'}
             }
         }
     ]
@@ -216,42 +224,18 @@ vehicleStartLocation | object     | The vehicle’s start location      | requir
 vehicleEndLocation | object     |  The vehicle’s end location      | optional  
 longitude | number | The longitude component in a location | required (if parent object is present)
 latitude | number | The latitude component in a location | required (if parent object is present)
-
+receipt | object |  The receipt object |required for ended rides
+url | string | A link to a pdf containing the reciept.  | required (if parent object is present)
 
 <aside class="warning">The <code>amount</code> is always in <b>minor units</b>. In most currencies the relation between the major unit and the minor unit is 1/100.<br>
 <b>Example:</b> In the currency euro (EUR), 100 of the minor unit cent corresponds with one major unit of EUR. <br>
 12.13 euro is sent as <code>{"amount": 1213, "currency": "EUR"}</code> </aside>
-
-
+<aside class="warning">The receipt link expires after 15 minutes.</aside>
 <aside class="warning">
   If location for start or end ride is provided via the API, the phones location will be used to define the end-ride postion. Otherwise. The scooters location – that is updated every 15 seconds – will be used.
 </aside>
 
-### Errors
-The following errors can be returned for this model.
 
-Code|Detail|ErrorCode
------|-----|-----
-StatusBadRequest|Invalidinput|InvalidInput
-StatusBadRequest|Invaliduserid|InvalidUserId
-StatusBadRequest|Invalidvehicleid|InvalidVehicleId
-StatusBadRequest|Invalidrentalid|InvalidRentalID
-StatusBadRequest|Userdoesnotexist|UserNotFound
-StatusBadRequest|Thisuseralreadyhasarental|RentalAlreadyExists
-StatusNotFound|RentalIDdoesnotexist|RentalIDDoesNotExist
-StatusBadRequest|Rentalisalreadyendedforthisrentalid|RentalAlreadyEnded
-StatusInternalServerError|Unabletostartrental|FailedToStartRental
-StatusInternalServerError|Unabletoendrental|FailedToEndRental
-StatusBadRequest|Vehiclenotfound|VehicleNotFound
-StatusInternalServerError|Failedtofetchvehicle|FailedToFetchVehicle
-StatusInternalServerError|failedtoupdatevehicle|FailedToUpdateVehicle
-StatusInternalServerError|Unabletolockvehicle|FailedToLockVehicle
-StatusInternalServerError|Unabletounlockvehicle|FailedToUnlockVehicle
-StatusInternalServerError|Unabletocalculateendrentalprice|FailedToCalculatePrice
-StatusInternalServerError|Unabletovalidateparkingarea|FailedToValidateParking
-StatusInternalServerError|ThisisnoparkingareaCannotendrental|FailedToEndRentalNoParking
-StatusInternalServerError|Unabletovalidateshortrental|FailedToValidateShortRental
-StatusNotFound|Unabletofindactiverental|ActiveRentalNotFound
 
 ## Start rental
 
@@ -319,6 +303,18 @@ field | type | description | presence
 userId | string | The id of the user for whom the rental is started | required
 vehicleId | string | The id of the vehicle which will be rented. The vechileId is represented as a QR code on the scooter and always a four character alphanumeric string.| required
 userStartLocation | object | The user’s location when starting the rental| optional
+
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalidinput|InvalidInput
+StatusBadRequest|Invaliduserid|InvalidUserId
+StatusBadRequest|Invalidvehicleid|InvalidVehicleId
+StatusBadRequest|Userdoesnotexist|UserNotFound
+StatusBadRequest|Thisuseralreadyhasarental|RentalAlreadyExists
+StatusBadRequest|Vehiclenotfound|VehicleNotFound
+StatusInternalServerError| | 
 
 
 ## End rental
@@ -400,7 +396,15 @@ field | type | description | presence
 ------ | -------- | -------- | -------
 userEndLocation | object | The user’s location when ending the rental | optional
 
+### Errors
 
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalidinput|InvalidInput
+StatusBadRequest|Invalidrentalid|InvalidRentalID
+StatusNotFound|RentalIDdoesnotexist|RentalIDDoesNotExist
+StatusBadRequest|Rentalisalreadyendedforthisrentalid|RentalAlreadyEnded
+StatusInternalServerError| | 
 
 ## Rental by id
 
@@ -437,7 +441,13 @@ parameter  | description
 ------ | -------- | -------
 id |  The user id for the requested rental
 
+### Errors
 
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalidinput|InvalidInput
+StatusNotFound|Unabletofindactiverental|ActiveRentalNotFound
+StatusInternalServerError| | 
 
 
 ## Rentals by user
@@ -455,6 +465,16 @@ curl https://partners.voiapp.io/v1/rental/user/82267e03-f5b1-4b76-86c6-9f07df279
 parameter  | description
 ------ | -------- | -------
 id |  The user id for the requested rentals
+
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalid input|InvalidInput
+StatusBadRequest|Invalid user id|InvalidUserId
+StatusNotFound|User not found|ErrUserNotFound
+StatusInternalServerError| | 
+
 
 # Pricing
 The cost of renting a Voi can differ, amongst others based on where the scooter is located and what time it is. When the user starts the ride, we comit to the price presented at that time. There are exeptions that will cause the price to change, [more details here](/payments/#prices-and-fees).
@@ -487,14 +507,6 @@ startPrice | integer | the start price, excluding Vat in minor units (also calle
 currency | string | the three letter alphabetic currency code (ISO 4217) | required     
 vat | integer | the VAT percentage  | required  
 
-### Errors
-
-The following errors can be returned for this model.
-
-Code|Detail|ErrorCode
------|-----|-----
-StatusBadRequest|Invalidvehicleid|InvalidVehicleId
-
 ## Get price
 
 > A get pricing request.
@@ -520,7 +532,7 @@ curl https://partners.voiapp.io/v1/pricing/vehicle/12345678-1337-abcd-1234-1234a
 }
 ```
 
-Pricing information can be accessed for a particular vehicle by referencing the vehicle’s id.
+Pricing information can be accessed for a particular vehicle by referencing the vehicle’s id. Prices are updated dynamically so do not cache price information, but rather request it when it's needed by the user.
 
 ### HTTPS request
 GET https://partners.voiapp.io/v1/pricing/vehicle/{id} 
@@ -530,6 +542,14 @@ GET https://partners.voiapp.io/v1/pricing/vehicle/{id}
 parameter | description | presence
 ------|--------- | -----
 id | The vehicle id (UUID version 4). | required
+
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Invalidvehicleid|InvalidVehicleId
+StatusInternalServerError| | 
+
 
 # Vehicle
 This section describes the possible interactions with the vehicle domain of the API.
@@ -568,14 +588,7 @@ longitude | number | the longitude component in a location | required
 latitude | number | the latitude component in a location | required 
 code | string |  the vehicle code, visually available on the vehicle | required
 
-### Errors
 
-The following errors can be returned for this model.
-
-Code|Detail|ErrorCode
------|-----|-----
-StatusBadRequest|Vehiclecodewasempty|EmptyVehicleCode
-StatusBadRequest|Vehicleidwasempty|EmptyVehicleID
 
 ## Get vehicles by zone
 > A get vehicles by zone request.
@@ -616,9 +629,7 @@ curl https://partners.voiapp.io/v1/vehicles/?zoneID=9
 }
 ```
 
-To be able to start a rental or get pricing, the vehicle which is subject for the rental or the pricing needs to be referenced with its id. 
-To discover the set of vehicles available for rental, the zone id needs to be provided. 
-Only vehicles available for rental will be part of the response.
+To be able to start a rental or get pricing, the vehicle which is subject for the rental or the pricing needs to be referenced with its id.  To discover the set of vehicles available for rental, the zone id needs to be provided. Only vehicles available for rental will be part of the response. We recommend retrieving the vechiles position every 7 seconds.
 
 
 ### HTTPS request
@@ -631,8 +642,15 @@ parameter  | description | presence
 ------ | -------- | -------
 zoneID |  The id of the requested zone | required
 
-<aside class="warning">The zones that can be accessed may be limited.</aside> 
+<aside class="warning">You can only get vechiles from the operational zones you have access to.</aside> 
 
+### Errors
+
+Code|Detail|ErrorCode
+-----|-----|-----
+StatusBadRequest|Vehiclecodewasempty|EmptyVehicleCode
+StatusBadRequest|Vehicleidwasempty|EmptyVehicleID
+StatusInternalServerError| | 
 
 ## Get Vehicle by code
 > A get vehicle by code request.
@@ -769,7 +787,7 @@ id |  The vehicle's id (UUID version 4)  | required
 }
 ```
 
-Within each operational Zone(a metropolitan area or city), there are zone areas, such as no-parking areas, slow areas, and operational areas. In order to display Zone areas in a partner app, the geolocation can be received using the get zones endpoint.
+Within each operational Zone(a metropolitan area or city), there are zone areas, such as no-parking areas, slow areas, and operational areas. In order to display Zone areas in a partner app, the geolocation can be received using the get zones endpoint. Zone areas are rarely updated so we recommend caching Zone areas no more than once every 6 hours.
 
 ### Supported Zone Areas
 
@@ -806,28 +824,30 @@ geometry | object | Describes the geometry for the area (geoJSON), described as 
 
 ### Errors
 
-The following errors can be returned for this model.
 
 Code|Detail|ErrorCode
 -----|-----|-----
 StatusBadRequest|Zoneidwasempty|EmptyZoneID
-
+StatusInternalServerError| | 
 
 # Miscellaneous
 ## GDPR requests
-Since the righ to be forgotten and other GDPR-requests require that we go through all our systems. Requests are handled by either the partner or end user contacting [customer support](/customer-support/). 
+Since the righ to be forgotten and other GDPR-requests require that we go through all our systems manually. Requests are handled by contacting [customer support](/poc/). 
 
-## Endpoints not built
-For clarity, here we list endpoints that are not available but have at some point been requested. We will notify all our partners if they become available.
-
-### Users
-It's not possible for partners to update user details or delete users.
-
-### Products
-Partners cannot add, update or delete products, contact Voi if you need to do this.
+## Endpoints planned
+The following endpoints are added to our roadmap and will be made available shortly.
 
 ### Operational zones
-There is no endpoint to see what operational zones you have access to. You will recieve the id for the zone you are operating in once you recieve access to them from Voi.
+We plan to build an endpoint to see what operational zones you have access to. For now, you will recieve the zone and id for the zone you are operating in once you recieve access to them from Voi.
+
+## Endpoints not planned
+For clarity, here we list endpoints that are not available. We have not planned to build them as of yet but will notify all our partners if we do.
+
+### Users
+It's not possible to delete users.
+
+### Products
+Partners cannot add, update or delete products, contact Voi if you need to.
 
 ### Lock and reserve 
 Since the feature is not widely used, we have not included lock and reserve in our API.
