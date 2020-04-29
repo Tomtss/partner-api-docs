@@ -29,12 +29,9 @@ We offer the partners to align on details with [counterparts](/poc/) in the foll
 - Customer support alignment, recomended to do half-way through the integration.
 - Engineering, recommended to do after tests against API are perfomed.
 
-#  Launch activites
-
-
 # Provide information
 Voi needs the following information from the partners
 
-- Planned go live date
-- Point of contact for customer support
-- Method for Voi to request partner to perform refund
+- Planned go live date.
+- Point of contact for customer support.
+- Method for Voi to request partner to perform refund.
