@@ -11,7 +11,7 @@ description: A read only API, containing MDS, GBFS and Zone data
 This section describes the Mobility Data Specification (MDS) provider API. To read it explained in full, go to the Open Mobility Foundation's GitHub [here](https://github.com/openmobilityfoundation/mobility-data-specification/tree/dev/provider). 
 
 
-## Authentication
+## Authentication.
 > A token request.
 
 ```shell
